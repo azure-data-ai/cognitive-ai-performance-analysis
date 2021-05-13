@@ -1,5 +1,4 @@
 .vscode
 __pycache__
 venv
-audio-out
 config.py
