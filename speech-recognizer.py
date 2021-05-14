@@ -41,7 +41,6 @@ def stt_from_file_pvt_ep(inputAudioFile):
 
 
 
-
 with CodeTimer('STT_FILE_PUB_E:'):
     stt_from_file_pub_ep(audio_in)
 

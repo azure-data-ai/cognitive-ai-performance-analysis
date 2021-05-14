@@ -13,6 +13,13 @@ class DefaultConfig:
 
     ## Speech SDK API config - Uncomment below code and update your key and region. (Provided values are dummy)
     # speech_key, service_region = "46c52f13e736ehd6yedyh433xxyyz031", "southeastasia"
+
+    ## Speech SDK API over web socket secure(wss) for private endpoint 
+    # URL Format => {your custom name}.cognitiveservices.azure.com/{speech service offering}/{URL path}
+    # Replace {myspeechmaysrv} in below url with your custom name
+    privateSTTEndpointUrl = "wss://myspeechmaysrv.cognitiveservices.azure.com/stt/speech/recognition/conversation/cognitiveservices/v1?language=en-US"
+    privateTTSEndpointUrl =  "wss://myspeechmaysrv.cognitiveservices.azure.com/tts/cognitiveservices/websocket/v1"
+  
     
     ## qna maker config - Uncomment below code and update your Endpoint and URL (Provided values are dummy)
     # url = "https://myqnamaker.azurewebsites.net/qnamaker/knowledgebases/4xxyy200-f23e-xxxx-a66c-5521xx95deff/generateAnswer"
