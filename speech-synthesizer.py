@@ -16,6 +16,8 @@ def tts_to_mic_pub_ep(textToSynthesize):
 
 def tts_to_file_pub_ep(textToSynthesize):
     speech_config = speechsdk.SpeechConfig(subscription=config.speech_key, region=config.service_region) 
+    speech_config.set_property(speechsdk.PropertyId.Speech_LogFilename, "./log/log.txt")
+    
     audio_output_config = speechsdk.AudioConfig(filename=audio_out)
     synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_output_config)
     synthesizer.speak_text_async(textToSynthesize).get()
