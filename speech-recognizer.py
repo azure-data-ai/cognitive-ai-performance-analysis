@@ -40,9 +40,23 @@ def stt_from_file_pvt_ep(inputAudioFile):
         raise
 
 
+def stt_from_file_container_pub_ep(inputAudioFile):
+    try:
+        speech_config = speechsdk.SpeechConfig(endpoint=config.stt_container_endpoint)
+        audio_input = speechsdk.AudioConfig(filename=inputAudioFile)
+        speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_input)
+        result = speech_recognizer.recognize_once_async().get()
+        print(result.text)
+                
+    except:
+        print(sys.exc_info()[0])
+        raise
 
-with CodeTimer('STT_FILE_PUB_E:'):
-    stt_from_file_pub_ep(audio_in)
+# with CodeTimer('STT_FILE_PUB_E:'):
+#     stt_from_file_pub_ep(audio_in)
 
 # with CodeTimer('STT_FILE_PVT_E:'):
 #     stt_from_file_pvt_ep(audio_in)
+
+with CodeTimer('STT_FILE_CONTAINER_EP:'):
+    stt_from_file_container_pub_ep(audio_in)    
