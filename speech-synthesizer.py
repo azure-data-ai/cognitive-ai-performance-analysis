@@ -18,13 +18,19 @@ def tts_to_file_pub_ep(textToSynthesize):
     speech_config = speechsdk.SpeechConfig(subscription=config.speech_key, region=config.service_region) 
     speech_config.set_property(speechsdk.PropertyId.Speech_LogFilename, "./log/log.txt")
     
-    audio_output_config = speechsdk.AudioConfig(filename=audio_out)
+    audio_output_config = speechsdk.audio.AudioOutputConfig(filename=audio_out)
     synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_output_config)
     synthesizer.speak_text_async(textToSynthesize).get()
 
 def tts_to_file_pvt_ep(textToSynthesize):
     speech_config = speechsdk.SpeechConfig(endpoint=config.privateTTSEndpointUrl, subscription=config.speech_key)
     audio_output_config = speechsdk.AudioConfig(filename=audio_out)
+    synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_output_config)
+    synthesizer.speak_text_async(textToSynthesize).get()
+
+def tts_to_file_container_pub_ep(textToSynthesize):
+    speech_config = speechsdk.SpeechConfig(endpoint=config.tts_container_endpoint)
+    audio_output_config = speechsdk.audio.AudioOutputConfig(filename=audio_out)
     synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_output_config)
     synthesizer.speak_text_async(textToSynthesize).get()
 
@@ -37,3 +43,6 @@ with CodeTimer('TTS_FILE_PUB_E'):
 
 # with CodeTimer('TTS_FILE_PVT_E'):
 #     tts_to_file_pvt_ep("Please turn off all the lights.")
+
+# with CodeTimer('TTS_FILE_CONTAINER_EP'):   
+#     tts_to_file_container_pub_ep("hello all")
