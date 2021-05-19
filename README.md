@@ -23,4 +23,4 @@ OS:
   To be updated :
 
 ## Notes:
-* Install 'MS Visual C++ redistributable' while seting up new VM
+* Install 'MS Visual C++ redistributable' while setting up new VM
