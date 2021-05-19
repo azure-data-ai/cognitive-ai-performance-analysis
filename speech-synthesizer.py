@@ -30,6 +30,7 @@ def tts_to_file_pvt_ep(textToSynthesize):
 
 def tts_to_file_container_pub_ep(textToSynthesize):
     speech_config = speechsdk.SpeechConfig(endpoint=config.tts_container_endpoint)
+    speech_config.set_speech_synthesis_output_format(speechsdk.SpeechSynthesisOutputFormat.Audio16Khz32KBitRateMonoMp3)
     audio_output_config = speechsdk.audio.AudioOutputConfig(filename=audio_out)
     synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_output_config)
     synthesizer.speak_text_async(textToSynthesize).get()
@@ -38,11 +39,11 @@ def tts_to_file_container_pub_ep(textToSynthesize):
 # with CodeTimer('TTS_MIC_PUB_E'):
 #     tts_to_mic_pub_ep("Please turn off all the lights.")
 
-with CodeTimer('TTS_FILE_PUB_E'):
-    tts_to_file_pub_ep("Please turn off all the lights.")
+# with CodeTimer('TTS_FILE_PUB_E'):
+#     tts_to_file_pub_ep("Please turn off all the lights.")
 
 # with CodeTimer('TTS_FILE_PVT_E'):
 #     tts_to_file_pvt_ep("Please turn off all the lights.")
 
-# with CodeTimer('TTS_FILE_CONTAINER_EP'):   
-#     tts_to_file_container_pub_ep("hello all")
+with CodeTimer('TTS_FILE_CONTAINER_EP'):   
+    tts_to_file_container_pub_ep("hello world")
