@@ -7,7 +7,13 @@ This repo had modules to compare and demonstrate the performance / response time
 * Run ```pip install -r requirements.txt```
 
 ## Module Description
-  Tobe updated ...
+  | Module | Description|
+  |----------|------------|
+  |speech-recognizer.py | Speech-to-text functions for the scenarios - input from mic, input from files, speech-to-text service over private endpoint, speech-to-text container service etc. |
+  |speech-synthesizer.py | Text-to-speech functions for - output to mic, output to file, text-to-speech with private endpoint, text-to-speech container api|
+  |speech-luis.py | combination of speech and luis services for intent recognition|
+  |stt-continuous.py | continuous streaming speech recognition |
+  |speech-rest-api.sh | Rest API call response test for speech-to-text and text-to-speech |
 
 ## Test Scenario
 * Public IP and Internet
