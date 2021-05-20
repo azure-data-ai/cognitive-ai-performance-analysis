@@ -61,6 +61,7 @@ def recognize_intent_once_from_file():
             ("This is a test.", "test"),
             ("Switch to the channel 34.", "34"),
             ("what's the weather like", "weather"),
+            ("Please turn off the light", "turn off" )
         ]
         intent_recognizer.add_intents(intents)
 
@@ -70,6 +71,8 @@ def recognize_intent_once_from_file():
         print(sys.exc_info()[0])
         raise
 
-recognize_intent_once_from_mic()
+# with CodeTimer('INTENT REC:'):
+#     recognize_intent_once_from_mic()
 
-# recognize_intent_once_from_file()
+with CodeTimer('INTENT REC:'):
+    recognize_intent_once_from_file()

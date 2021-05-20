@@ -21,9 +21,9 @@ def stt_continuous_mic_pub_ep():
         nonlocal done
         done = True
     
-    with CodeTimer('TTS_FILE_CONTAINER_PUB_EP'):
+    with CodeTimer('STREAMING SPEECH'):
         speech_recognizer.recognizing.connect(lambda evt: print('RECOGNIZING: {}'.format(evt.result.text)))
-    with CodeTimer('TTS_FILE_CONTAINER_PUB_EP'):
+    with CodeTimer('STREAMING SPEECH'):
         speech_recognizer.recognized.connect(lambda evt: print('RECOGNIZED: {}'.format(evt.result.text)))
 
     speech_recognizer.session_started.connect(lambda evt: print('SESSION STARTED: {}'.format(evt)))
