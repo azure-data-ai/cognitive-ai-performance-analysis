@@ -15,16 +15,20 @@ This repo had modules to compare and demonstrate the performance / response time
   |stt-continuous.py     | continuous streaming speech recognition |
   |speech-rest-api.sh    | Rest API call response test for speech-to-text and text-to-speech |
 
-## Test Scenario
+## Cognitive Services Performance Test Scenario
 * Public IP and Internet
-* Service Entpoint (Public IP) and Azure backbone network
-* Private Endpoint (Private IP) and Private Network (Azure backbone network)
+* Through Private Endpoint
+* Container API with Public and Private IP
+* Combination and Asynchronous interactions of API
 
  To be updated ...
 
-## Test cases and action performed
-   To Be updated ...
+## Test cases and observations
+   (Excel Document) To Be updated ...
 
+## Conclusion
+    To be updated ...
+    
 ## System set up
 System config :
 OS:
