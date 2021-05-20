@@ -1,5 +1,5 @@
 # cognitive-ai-performance-test
-This repo had modules to compare and demonstrate the performance / response time of cognitive services API
+This repo has modules to compare and demonstrate the performance / response time of cognitive services API
 
 ## Getting Started
 * ```git clone https://github.com/azure-data-ai/cognitive-ai-performance-test.git ```
