@@ -1,7 +1,10 @@
 # cognitive-ai-performance-test
+This repo had modules to compare and demonstrate the performance / response time of cognitive services API
 
-## Purpose
-To demonstrate the performance / response time of cognitive services API
+## Getting Started
+* git clone 
+* Rename config-template.py to config.py and add/update all the required properties/key/urls in the config.py
+* run pip install -r requirements.txt
 
 ## Module Description
   Tobe updated ...
