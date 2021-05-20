@@ -8,7 +8,7 @@ This repo had modules to compare and demonstrate the performance / response time
 
 ## Module Description
   | Module | Description|
-  |----------|------------|
+  |--------------------|------------|
   |speech-recognizer.py | Speech-to-text functions for the scenarios - input from mic, input from files, speech-to-text service over private endpoint, speech-to-text container service etc. |
   |speech-synthesizer.py | Text-to-speech functions for - output to mic, output to file, text-to-speech with private endpoint, text-to-speech container api|
   |speech-luis.py | combination of speech and luis services for intent recognition|
