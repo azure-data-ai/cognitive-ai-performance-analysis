@@ -52,6 +52,18 @@ def stt_from_file_container_pub_ep(inputAudioFile):
         print(sys.exc_info()[0])
         raise
 
+def stt_from_file_container_pvt_ep(inputAudioFile):
+    try:
+        speech_config = speechsdk.SpeechConfig(endpoint=config.stt_container_pvt_endpoint)
+        audio_input = speechsdk.AudioConfig(filename=inputAudioFile)
+        speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_input)
+        result = speech_recognizer.recognize_once_async().get()
+        print(result.text)
+                
+    except:
+        print(sys.exc_info()[0])
+        raise
+
 
 options = ["STT SDK - TO MIC - PUBLIC API",   
         "STT SDK - TO FILE - PUBLIC API", 
@@ -75,9 +87,8 @@ def executeModule():
         with CodeTimer('STT_FILE_CONTAINER_PUB_EP:'):
             stt_from_file_container_pub_ep(audio_in)   
     elif option == 5:
-        # with CodeTimer('STT_FILE_CONTAINER_PVT_EP'):   
-        #     stt_from_file_container_pvt_ep("hello world")
-        print("to do")
+        with CodeTimer('STT_FILE_CONTAINER_PVT_EP'):   
+            stt_from_file_container_pvt_ep(audio_in)
     else:
         print('Invalid choice')
 
