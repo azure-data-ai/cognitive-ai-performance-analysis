@@ -10,11 +10,13 @@ audio_out = "./audio-out/tts-output.wav"
 
 
 def stt_from_mic_pub_ep():
-    speech_config = speechsdk.SpeechConfig(subscription=config.speech_key, region=config.service_region)
-    speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config)
-    print("Say Something...")
-    return speech_recognizer.recognize_once().text    # For long-running multi-utterance recognition, use start_continuous_recognition() instead.
-
+    try:
+        speech_config = speechsdk.SpeechConfig(subscription=config.speech_key, region=config.service_region)
+        speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config)
+        print("Say Something...")
+        return speech_recognizer.recognize_once().text    # For long-running multi-utterance recognition, use start_continuous_recognition() instead.
+    except RuntimeError:
+        print('\033[41m EXCEPTION: MIC NOT AVAILABLE \033[0m')
 
 def stt_from_file_pub_ep(inputAudioFile):
     try:
