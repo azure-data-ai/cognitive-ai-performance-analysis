@@ -2,7 +2,7 @@ import sys
 import azure.cognitiveservices.speech as speechsdk
 
 from config import DefaultConfig
-from linetimer import CodeTimer
+from utility import CodeTimer, getUserInput
 
 config = DefaultConfig()
 
@@ -59,7 +59,7 @@ def recognize_intent_once_from_file():
             (model, "HomeAutomation.TurnOn"),
             (model, "HomeAutomation.TurnOff"),
             ("This is a test.", "test"),
-            ("Switch the to channel 34.", "34"),
+            ("Switch to the channel 34.", "34"),
             ("what's the weather like", "weather"),
         ]
         intent_recognizer.add_intents(intents)
@@ -70,6 +70,6 @@ def recognize_intent_once_from_file():
         print(sys.exc_info()[0])
         raise
 
-# recognize_intent_once_from_mic()
+recognize_intent_once_from_mic()
 
-recognize_intent_once_from_file()
+# recognize_intent_once_from_file()

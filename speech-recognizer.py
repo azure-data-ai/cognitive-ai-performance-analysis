@@ -2,7 +2,7 @@ import sys
 import azure.cognitiveservices.speech as speechsdk
 
 from config import DefaultConfig
-from linetimer import CodeTimer
+from utility import CodeTimer, getUserInput
 
 config = DefaultConfig()
 audio_in = "./audio-in/3s.wav"
@@ -42,7 +42,7 @@ def stt_from_file_pvt_ep(inputAudioFile):
 
 def stt_from_file_container_pub_ep(inputAudioFile):
     try:
-        speech_config = speechsdk.SpeechConfig(endpoint=config.stt_container_endpoint)
+        speech_config = speechsdk.SpeechConfig(endpoint=config.stt_container_pub_endpoint)
         audio_input = speechsdk.AudioConfig(filename=inputAudioFile)
         speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_input)
         result = speech_recognizer.recognize_once_async().get()
@@ -52,11 +52,39 @@ def stt_from_file_container_pub_ep(inputAudioFile):
         print(sys.exc_info()[0])
         raise
 
-# with CodeTimer('STT_FILE_PUB_E:'):
-#     stt_from_file_pub_ep(audio_in)
 
-# with CodeTimer('STT_FILE_PVT_E:'):
-#     stt_from_file_pvt_ep(audio_in)
+options = ["STT SDK - TO MIC - PUBLIC API",   
+        "STT SDK - TO FILE - PUBLIC API", 
+        "STT SDK - TO FILE - PRIVATE ENDPOINT" , 
+        "STT SDK - TO FILE - CONTAINER - PUBLIC EP",
+        "STT SDK - TO FILE - CONTAINER - PRIVATE EP"]
 
-with CodeTimer('STT_FILE_CONTAINER_EP:'):
-    stt_from_file_container_pub_ep(audio_in)    
+def executeModule():
+    option = getUserInput(options)
+    print(f'Executing option: {option}')
+    if option == 1:
+        with CodeTimer('STT_MIC_PUB_E:'):
+            print(stt_from_mic_pub_ep())
+    elif option == 2:
+        with CodeTimer('STT_FILE_PUB_E:'):
+            stt_from_file_pub_ep(audio_in)
+    elif option == 3:
+        with CodeTimer('STT_FILE_PVT_E:'):
+            stt_from_file_pvt_ep(audio_in)
+    elif option == 4:
+        with CodeTimer('STT_FILE_CONTAINER_PUB_EP:'):
+            stt_from_file_container_pub_ep(audio_in)   
+    elif option == 5:
+        # with CodeTimer('STT_FILE_CONTAINER_PVT_EP'):   
+        #     stt_from_file_container_pvt_ep("hello world")
+        print("to do")
+    else:
+        print('Invalid choice')
+
+
+executeModule()
+
+
+
+
+ 
