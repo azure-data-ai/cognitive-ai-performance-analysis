@@ -1,8 +1,8 @@
-# cognitive-ai-performance-test
+# cognitive-ai-performance-analysis
 This repo has modules to compare and demonstrate the performance / response time of cognitive services API
 
 ## Getting Started
-* ```git clone https://github.com/azure-data-ai/cognitive-ai-performance-test.git ```
+* ```git clone https://github.com/azure-data-ai/cognitive-ai-performance-analysis.git ```
 * Rename ```config-template.py``` to ```config.py``` and add/update all the required properties/key/urls in the config.py
 * Run ```pip install -r requirements.txt```
 
