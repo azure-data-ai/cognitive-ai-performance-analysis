@@ -21,19 +21,11 @@ This repo has modules to compare and demonstrate the performance / response time
 * Container API with Public and Private IP
 * Combination and Asynchronous interactions of API
 
- To be updated ...
 
 ## Test cases and observations
-   (Excel Document) To Be updated ...
+   ![Performance Analysis Outcome]
 
-## Conclusion
-    To be updated ...
-    
-## System set up
-System config :
-OS:
 
-  To be updated :
 
 ## Notes:
 * Install 'MS Visual C++ redistributable' while setting up new VM
