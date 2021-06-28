@@ -23,7 +23,7 @@ This repo has modules to compare and demonstrate the performance / response time
 
 
 ## Test cases and observations
-   ![Performance Analysis Outcome]
+   ![Performance Analysis Outcome](./_images/cs-performance-analysis.JPG)
 
 
 
